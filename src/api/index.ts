@@ -2,10 +2,16 @@
 import { api, APIPromise } from 'framework';
 import { statusResponse, AcRequest, SingleRequest } from './types';
 
+const commonRequest = {
+  get: (str: string)=>{
+    console.log(2222);
+  }
+}
+
 export function getUserInfo(data: AcRequest): APIPromise<statusResponse> {
-  return api.commonRequest.get('account/get_binding_requests/');
+  return commonRequest.get('account/get_binding_requests/');
 }
 
 export function unbindInfo(data: SingleRequest): APIPromise<{}> {
-  return api.commonRequest.get('account/unbind_account/');
+  return commonRequest.get('account/unbind_account/');
 }
